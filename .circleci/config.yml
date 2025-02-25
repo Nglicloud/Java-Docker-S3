@@ -7,12 +7,15 @@ jobs:
   build:
     docker:
       - image: cimg/openjdk:23.0.2
-    working_directory: ~/project
+    working_directory: ~/repo
     steps:
       - checkout
       - run:
           name: Verify working directory
           command: pwd && ls -la  
+      - run:
+          name: Debug Workspace
+          command: ls -la
       - run:
           name: Build the project
           command: mvn clean package
