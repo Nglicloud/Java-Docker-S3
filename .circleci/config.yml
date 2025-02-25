@@ -11,21 +11,18 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Verify working directory
-          command: pwd && ls -la  
+          name: Verify Working Directory
+          command: pwd && ls -la
       - run:
-          name: Debug Workspace
-          command: ls -la
+          name: Debug Target Directory
+          command: ls -la target || echo "Target directory not found"
       - run:
-          name: Build the project
-          command: mvn clean package
-      - run:
-          name: Run tests
-          command: mvn test
+          name: Build the Project
+          command: mvn clean package && ls -la target
       - persist_to_workspace:
-          root: /home/circleci/repo
+          root: .
           paths:
-            - target/app.jar
+            - target/
 
   sonar_scan:
     docker:
