@@ -13,8 +13,6 @@ jobs:
       - run:
           name: Verify working directory
           command: pwd && ls -la  
-    steps:
-      - checkout
       - run:
           name: Build the project
           command: mvn clean package
