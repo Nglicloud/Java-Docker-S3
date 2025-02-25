@@ -41,9 +41,7 @@ jobs:
       - checkout
       - attach_workspace:
           at: .
-      - run:
-          name: Install AWS CLI
-          command: sudo apt-get install -y awscli
+      - aws-cli/setup  # This will install AWS CLI using the orb
       - run:
           name: Upload to S3
           command: aws s3 cp target/app.jar s3://dattas-bucket/app.jar
