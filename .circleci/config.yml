@@ -37,7 +37,6 @@ jobs:
       - run:
           name: SonarCloud Scan
           command: mvn sonar:sonar -Dsonar.organization=Nglicloud -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
-
   deploy:
     docker:
       - image: cimg/python:3.9
