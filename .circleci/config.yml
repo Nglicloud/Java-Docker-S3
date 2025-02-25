@@ -47,7 +47,7 @@ jobs:
           command: aws configure set region eu-west-1
       - run:
           name: Upload to S3
-          command: aws s3 cp target/app.jar s3://dattas-bucket/app.jar --region eu-west-1
+          command: aws s3 cp target/ s3://dattas-bucket/target --region eu-west-1
 workflows:
   version: 2
   pipeline:
